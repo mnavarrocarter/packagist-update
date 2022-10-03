@@ -26,7 +26,7 @@ The Packagist domain to call. Default `"packagist.org"`.
 
 ## Outputs
 
-### `packagist_job_id`
+### `job_id`
 
 The packagist job created for your update.
 
