@@ -5,8 +5,8 @@ branding:
   icon: 'package'
   color: 'orange'
 inputs:
-  packagist_domain:
-    description: 'The packagist domain',
+  domain:
+    description: 'The packagist domain to call.',
     required: false
     default: 'packagist.org'
   username:
@@ -20,8 +20,8 @@ inputs:
     required: false
     default: ''
 outputs:
-  packagist_job_id:
+  job_id:
     description: 'The job id created by Packagist'
 runs:
   using: 'node16'
-  main: 'src/index.js'
+  main: 'dist/index.js'

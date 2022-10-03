@@ -3,7 +3,7 @@ const fs = require('fs/promises')
 require('isomorphic-fetch')
 
 async function run() {
-    const domain = core.getInput('packagist_domain');
+    const domain = core.getInput('domain');
     const username = core.getInput('username');
     const apiToken = core.getInput("api_token");
     let packageName = core.getInput("package_name");
@@ -39,7 +39,7 @@ async function run() {
     }
 
     const data = await resp.json();
-    core.setOutput('packagist_job_id', data.jobs[0]);
+    core.setOutput('job_id', data.jobs[0]);
     core.info(`Package ${packageName} updated successfully!`);
 }
 
