@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Testing the action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Packagist Update
+        uses: ./ # Uses an action in the root directory
+        id: update
+        with:
+          username: 'mnavarrocarter'
+          api_token: ${{ secrets.PACKAGIST_TOKEN }}
+          package_name: castor/io
+      - name: Get the job id
+        run: echo "The time was ${{ steps.update.outputs.job_id }}"
