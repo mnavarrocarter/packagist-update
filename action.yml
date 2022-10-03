@@ -1,0 +1,27 @@
+name: 'Packagist Update'
+description: 'Update your PHP package on Packagist'
+author: mnavarrocarter
+branding:
+  icon: 'package'
+  color: 'orange'
+inputs:
+  packagist_domain:
+    description: 'The packagist domain',
+    required: false
+    default: 'packagist.org'
+  username:
+    description: 'Your packagist username'
+    required: true
+  api_token:
+    description: 'Your packagist api token'
+    required: true
+  package_name:
+    description: 'Your package name (vendor/name). If not present, it takes it from composer.json'
+    required: false
+    default: ''
+outputs:
+  packagist_job_id:
+    description: 'The job id created by Packagist'
+runs:
+  using: 'node16'
+  main: 'src/index.js'
