@@ -15,4 +15,4 @@ jobs:
           api_token: ${{ secrets.PACKAGIST_TOKEN }}
           package_name: castor/io
       - name: Get the job id
-        run: echo "The time was ${{ steps.update.outputs.job_id }}"
+        run: echo "The job id is ${{ steps.update.outputs.job_id }}"
