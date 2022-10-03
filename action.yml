@@ -6,7 +6,7 @@ branding:
   color: 'orange'
 inputs:
   domain:
-    description: 'The packagist domain to call.',
+    description: 'The packagist domain to call.'
     required: false
     default: 'packagist.org'
   username:
