@@ -63,7 +63,7 @@ async function update(domain, packageName, username, apiToken, request) {
   );
 
   if (!resp.ok) {
-    if (resp.status === 404) {
+    if (resp.status == 404) {
       throw new NotFoundError(`Package ${packageName} not found`);
     } else {
       throw new Error(
