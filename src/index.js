@@ -81,7 +81,7 @@ async function create(domain, packageName, username, apiToken, request) {
   core.debug(`Sending request to create ${packageName} package`);
 
   const resp = await fetch(
-    `https://${domain}/api/update-package?username=${username}&apiToken=${apiToken}`,
+    `https://${domain}/api/create-package?username=${username}&apiToken=${apiToken}`,
     request
   );
 
