@@ -6812,6 +6812,7 @@ async function run() {
     await update(domain, packageName, username, apiToken, request);
   } catch (e) {
     if (e instanceof NotFoundError) {
+      core.debug(e.message);
       core.debug("Package not found, creating it...");
       await create(domain, packageName, username, apiToken, request);
     } else {
@@ -6830,10 +6831,14 @@ async function update(domain, packageName, username, apiToken, request) {
 
   if (!resp.ok) {
     if (resp.status == 404) {
-      throw new NotFoundError(`Package ${packageName} not found`);
+      throw new NotFoundError(
+        `Package ${packageName} not found - ${await resp.text()}`
+      );
     } else {
       throw new Error(
-        `Error response ${resp.status} from Packagist during update`
+        `Error response ${
+          resp.status
+        } from Packagist during update - ${await resp.text()}`
       );
     }
   }
@@ -6853,7 +6858,9 @@ async function create(domain, packageName, username, apiToken, request) {
 
   if (!resp.ok) {
     throw new Error(
-      `Error response ${resp.status} from Packagist during create`
+      `Error response ${
+        resp.status
+      } from Packagist during create - ${await resp.text()}`
     );
   }
 
