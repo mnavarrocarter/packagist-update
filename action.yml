@@ -1,27 +1,31 @@
-name: 'Packagist Update'
-description: 'Update your PHP package on Packagist'
+name: "Packagist Update"
+description: "Update your PHP package on Packagist"
 author: mnavarrocarter
 branding:
-  icon: 'package'
-  color: 'orange'
+  icon: "package"
+  color: "orange"
 inputs:
   domain:
-    description: 'The packagist domain to call.'
+    description: "The packagist domain to call."
     required: false
-    default: 'packagist.org'
+    default: "packagist.org"
   username:
-    description: 'Your packagist username'
+    description: "Your packagist username"
     required: true
   api_token:
-    description: 'Your packagist api token'
+    description: "Your packagist api token"
     required: true
   package_name:
-    description: 'Your package name (vendor/name). If not present, it takes it from composer.json'
+    description: "Your package name (vendor/name). If not present, it takes it from composer.json"
     required: false
-    default: ''
+    default: ""
+  package_base_url:
+    description: "The base url of your package. Defaults to https://packagist.org/packages or set to https://github.com for github packages."
+    required: false
+    default: "https://packagist.org/packages"
 outputs:
   job_id:
-    description: 'The job id created by Packagist'
+    description: "The job id created by Packagist, if update was successful. (Not set for first creation)"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
